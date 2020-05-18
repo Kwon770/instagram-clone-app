@@ -3,8 +3,8 @@ import { AsyncStorage } from "react-native";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+export const AuthProvider = ({ isLoggedIn: isLoggedInProp, children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(isLoggedInProp);
   const logUserIn = async () => {
     try {
       // Only support string type
@@ -38,24 +38,10 @@ export const userIsLoggedIn = () => {
 
 export const useLogIn = () => {
   const { logUserIn } = useContext(AuthContext);
-  return;
+  return logUserIn;
 };
 
 export const useLogOut = () => {
   const { logUserOut } = useContext(AuthContext);
-  return;
+  return logUserOut;
 };
-
-{
-  /* <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-  {isLoggedIn === true ? (
-    <TouchableOpacity onPress={logUserOut}>
-      <Text>Log Out</Text>
-    </TouchableOpacity>
-  ) : (
-    <TouchableOpacity onPress={logUserIn}>
-      <Text>Log In</Text>
-    </TouchableOpacity>
-  )}
-</View>; */
-}
