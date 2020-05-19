@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import { userIsLoggedIn, useLogOut, useLogIn } from "./AuthContext";
+import { useIsLoggedIn, useLogOut, useLogIn } from "./AuthContext";
 
 export default () => {
-  const isLoggedIn = userIsLoggedIn();
+  const isLoggedIn = useIsLoggedIn();
   const logIn = useLogIn();
   const logOut = useLogOut();
   return (

@@ -31,7 +31,7 @@ export const AuthProvider = ({ isLoggedIn: isLoggedInProp, children }) => {
   );
 };
 
-export const userIsLoggedIn = () => {
+export const useIsLoggedIn = () => {
   const { isLoggedIn } = useContext(AuthContext);
   return isLoggedIn;
 };

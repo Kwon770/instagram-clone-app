@@ -22,6 +22,7 @@ Screens:
 
 ## Document
 
-| Title | Description   | Description                          |
-| ----- | ------------- | ------------------------------------ |
-| Expo  | Expo features | [Documentation](./Documents/Expo.md) |
+| Title   | Description                          | Description                             |
+| ------- | ------------------------------------ | --------------------------------------- |
+| Expo    | Expo features                        | [Documentation](./Documents/Expo.md)    |
+| Context | How to use Context from this project | [Documentation](./Documents/Context.md) |
