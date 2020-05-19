@@ -15,7 +15,7 @@ Screens:
 ## Setup
 
 ```bash
- $ yarn add styled-components react-navigation apollo-boost graphql react-apollo-hooks @expo/vector-icons expo-font expo-asset apollo-cache-persist apollo-cache-inmemory
+ $ yarn add styled-components apollo-boost graphql react-apollo-hooks @expo/vector-icons expo-font expo-asset apollo-cache-persist apollo-cache-inmemory react-navigation @react-navigation/native @react-navigation/stack react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 ```
 
 [Expo vector-icons directory](https://icons.expo.fyi)
