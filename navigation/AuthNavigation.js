@@ -2,11 +2,10 @@ import React from "react";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-// import { createAppContainer } from "react-navigation";
-import Signup from "../screen/Auth/Signup";
-import Login from "../screen/Auth/Login";
-import Confirm from "../screen/Auth/Confirm";
-import AuthHome from "../screen/Auth/AuthHome";
+import Signup from "../screens/Auth/Signup";
+import Login from "../screens/Auth/Login";
+import Confirm from "../screens/Auth/Confirm";
+import AuthHome from "../screens/Auth/AuthHome";
 
 const AuthNavigation = createStackNavigator();
 
