@@ -20,6 +20,7 @@
     "expo-asset": "^8.1.5",
     "expo-font": "^8.1.1",
     "graphql": "^15.0.0",
+    "mem": "^6.1.0",
     "react": "~16.9.0",
     "react-apollo-hooks": "^0.5.0",
     "react-dom": "~16.9.0",
