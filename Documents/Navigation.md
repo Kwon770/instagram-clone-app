@@ -1,15 +1,39 @@
 # Navigation
 
+(react-navigation Docs V.5)[https://reactnavigation.org/docs/getting-started]
+
 - Stack Navigation
-- Tab Navigation
-- ?? Navigation
+- Bottom Tab Navigation
+- Material Botton Tab Navigation
+- Material Top Tab Navigation
 - Drawer Navigation
+
+## Setup
+
+- First installing is for common project
+- Second installing is for Expo project
+- Third installing is for bare React Native project
+
+```bash
+  $ yarn add @react-navigation/native
+  $ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+  $ yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+```
+
+And add this to `App.js` or `index.js` where is root from the projext
+
+```js
+import "react-native-gesture-handler";
+```
 
 ## How to use stack navigation
 
+```bash
+  $ yarn add @react-navigation/stack 
+```
+
 ```js
 import React from "react";
-import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Signup from "../screens/Auth/Signup";
@@ -34,6 +58,10 @@ export default () => {
 ```
 
 ## How to use tab navigation
+
+```bash
+  $ yarn add @react-navigation/bottom-tabs 
+```
 
 ```js
 import React from "react";
@@ -70,4 +98,59 @@ export default () => {
     </NavigationContainer>
   );
 };
+```
+
+## How to use material top tab navigation
+
+```bash
+  $ yarn add @react-navigation/material-top-tabs react-native-tab-view
+```
+
+This code is the usage of material top tab navigation, having two skills to decorate
+
+1. Tab navigator in stack navigator
+
+User only can see the tabs of `PhotoTabs` (not `UploadPhoto` screen). But TakePhoto has click event to open `UploadPhoto` screen.
+
+so If the event is triggered, `UploadPhoto` will be top of stack (PhotoStack) in screen.
+
+_=> There is Two tabs (`SelectPhoto`, `TakePhoto`). If event is triggered, `UploadPhoto` will appear on top of stack_
+
+2. Tab Position
+
+`<TabNavigator.Navigator tabBarPosition="bottom">`
+
+There is also Material-Bottom-Tabs. But it is different in appearance.
+
+So we just can make material-top-tabs look like material-bottom-tabs by changing position.
+
+```js
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import SelectPhoto from "../screens/Photo/SelectPhoto";
+import TakePhoto from "../screens/Photo/TakePhoto";
+import UploadPhoto from "../screens/Photo/UploadPhoto";
+
+const PhotoStack = createStackNavigator();
+const TabNavigator = createMaterialTopTabNavigator();
+
+function PhotoTabNavigator() {
+  return (
+    <TabNavigator.Navigator tabBarPosition="bottom">
+      <TabNavigator.Screen name="SelectPhoto" component={SelectPhoto} />
+      <TabNavigator.Screen name="TakePhoto" component={TakePhoto} />
+    </TabNavigator.Navigator>
+  );
+}
+
+export default () => {
+  return (
+    <PhotoStack.Navigator>
+      <PhotoStack.Screen name="PhotoTabs" component={PhotoTabNavigator} />
+      <PhotoStack.Screen name="UploadPhoto" component={UploadPhoto} />
+    </PhotoStack.Navigator>
+  );
+};
+
 ```

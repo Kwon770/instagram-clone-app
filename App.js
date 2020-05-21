@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "react-native-gesture-handler";
 import { ThemeProvider } from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 import { AppLoading } from "expo";

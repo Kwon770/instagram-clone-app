@@ -1,5 +1,4 @@
 import React from "react";
-import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import SelectPhoto from "../screens/Photo/SelectPhoto";
