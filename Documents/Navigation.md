@@ -251,3 +251,29 @@ export default withNavigation(({ navigation }) => (
   </Container>
 ));
 ```
+
+## Change default background color
+
+When you use the navigator, you must change color property from `navigator.Screen` to change default background color.
+
+```js
+<MainNavigation.Screen
+          name="MessageNavigation"
+          component={MessageNavigation}
+          options={{ cardStyle: { backgroundColor: "#ffffff" } }}
+        />
+```
+
+_But if you want to change the color of all navigator, change it from `navigator.Navigator`.
+
+```js
+<NavigationContainer>
+      <MainNavigation.Navigator
+        headerMode="none"
+        mode="modal"
+        screenOptions={{ cardStyle: { backgroundColor: "#ffffff" } }}
+      >
+        <MainNavigation.Screen name="TabNavigation" component={TabNavigation} />
+      </MainNavigation.Navigator>
+    </NavigationContainer>
+```
