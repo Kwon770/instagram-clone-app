@@ -8,14 +8,12 @@ import UploadPhoto from "../screens/Photo/UploadPhoto";
 const PhotoStack = createStackNavigator();
 const TabNavigator = createMaterialTopTabNavigator();
 
-function PhotoTabNavigator() {
-  return (
-    <TabNavigator.Navigator tabBarPosition="bottom">
-      <TabNavigator.Screen name="SelectPhoto" component={SelectPhoto} />
-      <TabNavigator.Screen name="TakePhoto" component={TakePhoto} />
-    </TabNavigator.Navigator>
-  );
-}
+const PhotoTabNavigator = () => (
+  <TabNavigator.Navigator tabBarPosition="bottom">
+    <TabNavigator.Screen name="SelectPhoto" component={SelectPhoto} />
+    <TabNavigator.Screen name="TakePhoto" component={TakePhoto} />
+  </TabNavigator.Navigator>
+);
 
 export default () => {
   return (
