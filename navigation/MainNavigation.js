@@ -10,7 +10,11 @@ const MainNavigation = createStackNavigator();
 export default () => {
   return (
     <NavigationContainer>
-      <MainNavigation.Navigator headerMode="none" mode="modal">
+      <MainNavigation.Navigator
+        headerMode="none"
+        mode="modal"
+        screenOptions={{ cardStyle: { backgroundColor: "#ffffff" } }}
+      >
         <MainNavigation.Screen name="TabNavigation" component={TabNavigation} />
         <MainNavigation.Screen
           name="MessageNavigation"

@@ -12,7 +12,11 @@ const AuthNavigation = createStackNavigator();
 export default () => {
   return (
     <NavigationContainer>
-      <AuthNavigation.Navigator initialRouteName="AuthHome" headerMode="none">
+      <AuthNavigation.Navigator
+        initialRouteName="AuthHome"
+        headerMode="none"
+        screenOptions={{ cardStyle: { backgroundColor: "#ffffff" } }}
+      >
         <AuthNavigation.Screen name="AuthHome" component={AuthHome} />
         <AuthNavigation.Screen name="Login" component={Login} />
         <AuthNavigation.Screen name="Confirm" component={Confirm} />
