@@ -28,10 +28,10 @@ import "react-native-gesture-handler";
 
 ## How to use stack navigation
 
-# Install 
+# Install
 
 ```bash
-  $ yarn add @react-navigation/stack 
+  $ yarn add @react-navigation/stack
 ```
 
 # Usage
@@ -67,17 +67,18 @@ export default () => {
 
 ```js
 <Stack.Navigator>
-    <Stack.Screen
-      name="Nav"
-      component={Nav}
-      options={{
-        headerRight: () => (
-              <TouchableOpacity>
-                <Text>HELLO</Text>
-              </TouchableOpacity>
-            )}}
-    />
-  </Stack.Navigator>
+  <Stack.Screen
+    name="Nav"
+    component={Nav}
+    options={{
+      headerRight: () => (
+        <TouchableOpacity>
+          <Text>HELLO</Text>
+        </TouchableOpacity>
+      ),
+    }}
+  />
+</Stack.Navigator>
 ```
 
 ## How to use tab navigation
@@ -85,7 +86,7 @@ export default () => {
 # Install
 
 ```bash
-  $ yarn add @react-navigation/bottom-tabs 
+  $ yarn add @react-navigation/bottom-tabs
 ```
 
 # Usage
@@ -126,7 +127,6 @@ export default () => {
   );
 };
 ```
-
 
 ## How to use material top tab navigation
 
@@ -186,12 +186,9 @@ export default () => {
     </PhotoStack.Navigator>
   );
 };
-
 ```
 
-## Several application
-
-# Pass navigation component to other navigation
+## Pass navigation component to other navigation
 
 ```js
 const StackNavigation = createStackNavigator();
@@ -199,14 +196,11 @@ const TabNavigation = createBottomTabNavigator();
 
 const stackFactory = ({
   route: {
-    params: { name, initialRoute},
+    params: { name, initialRoute },
   },
 }) => (
   <StackNavigation.Navigator>
-    <StackNavigation.Screen
-      name={name}
-      component={initialRoute}
-    />
+    <StackNavigation.Screen name={name} component={initialRoute} />
   </StackNavigation.Navigator>
 );
 
@@ -216,19 +210,44 @@ export default () => {
       <TabNavigation.Screen
         name="Home"
         component={stackFactory}
-        initialParams={{
-          initialRoute: Home,
-          name: "Home"
-        }}
+        initialParams={{ initialRoute: Home, name: "Home" }}
       />
       <TabNavigation.Screen
         name="Search"
         component={stackFactory}
-        initialParams={{ initialRoute: Search, 
-        name: "Search" }}
+        initialParams={{ initialRoute: Search, name: "Search" }}
       />
     </TabNavigation.Navigator>
   );
 };
+```
 
+## Get Navigation from other component
+
+# V.5
+
+```js
+import { useNavigation } from "@react-navigation/native";
+
+export default () => {
+  const navigation = useNavigation();
+
+  return (
+    <Container onPress={() => navigation.navigate("MessageNavigation")}>
+      <Text>Messages</Text>
+    </Container>
+  );
+};
+```
+
+# V.4
+
+```js
+import { withNavigation } from "react-navigation";
+
+export default withNavigation(({ navigation }) => (
+  <Container onPress={() => navigation.navigate("MessageNavigation")}>
+    <Text>Messages</Text>
+  </Container>
+));
 ```
