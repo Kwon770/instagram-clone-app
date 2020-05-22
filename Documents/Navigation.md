@@ -28,9 +28,13 @@ import "react-native-gesture-handler";
 
 ## How to use stack navigation
 
+# Install 
+
 ```bash
   $ yarn add @react-navigation/stack 
 ```
+
+# Usage
 
 ```js
 import React from "react";
@@ -57,11 +61,34 @@ export default () => {
 };
 ```
 
+# Embed UI to header
+
+(Docs)[https://reactnavigation.org/docs/header-buttons/#adding-a-button-to-the-header]
+
+```js
+<Stack.Navigator>
+    <Stack.Screen
+      name="Nav"
+      component={Nav}
+      options={{
+        headerRight: () => (
+              <TouchableOpacity>
+                <Text>HELLO</Text>
+              </TouchableOpacity>
+            )}}
+    />
+  </Stack.Navigator>
+```
+
 ## How to use tab navigation
+
+# Install
 
 ```bash
   $ yarn add @react-navigation/bottom-tabs 
 ```
+
+# Usage
 
 ```js
 import React from "react";
@@ -100,11 +127,16 @@ export default () => {
 };
 ```
 
+
 ## How to use material top tab navigation
+
+# Install
 
 ```bash
   $ yarn add @react-navigation/material-top-tabs react-native-tab-view
 ```
+
+# Several application with tab navigation
 
 This code is the usage of material top tab navigation, having two skills to decorate
 
@@ -123,6 +155,8 @@ _=> There is Two tabs (`SelectPhoto`, `TakePhoto`). If event is triggered, `Uplo
 There is also Material-Bottom-Tabs. But it is different in appearance.
 
 So we just can make material-top-tabs look like material-bottom-tabs by changing position.
+
+# Usage
 
 ```js
 import React from "react";
@@ -150,6 +184,50 @@ export default () => {
       <PhotoStack.Screen name="PhotoTabs" component={PhotoTabNavigator} />
       <PhotoStack.Screen name="UploadPhoto" component={UploadPhoto} />
     </PhotoStack.Navigator>
+  );
+};
+
+```
+
+## Several application
+
+# Pass navigation component to other navigation
+
+```js
+const StackNavigation = createStackNavigator();
+const TabNavigation = createBottomTabNavigator();
+
+const stackFactory = ({
+  route: {
+    params: { name, initialRoute},
+  },
+}) => (
+  <StackNavigation.Navigator>
+    <StackNavigation.Screen
+      name={name}
+      component={initialRoute}
+    />
+  </StackNavigation.Navigator>
+);
+
+export default () => {
+  return (
+    <TabNavigation.Navigator>
+      <TabNavigation.Screen
+        name="Home"
+        component={stackFactory}
+        initialParams={{
+          initialRoute: Home,
+          name: "Home"
+        }}
+      />
+      <TabNavigation.Screen
+        name="Search"
+        component={stackFactory}
+        initialParams={{ initialRoute: Search, 
+        name: "Search" }}
+      />
+    </TabNavigation.Navigator>
   );
 };
 
