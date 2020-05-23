@@ -14,17 +14,14 @@ Screens:
 
 ## Tech Stack
 
-|                 React Native                  |              React Navigation               |                     Expo                     |
-| :-------------------------------------------: | :-----------------------------------------: | :------------------------------------------: |
-| <img src="./Documents/react.png" width="200"> | <img src="./Documents/nav.png" width="200"> | <img src="./Documents/expo.png" width="200"> |
+|                 React Native                  |              React Navigation               |                     Expo                     |                styled component                |
+| :-------------------------------------------: | :-----------------------------------------: | :------------------------------------------: | :--------------------------------------------: |
+| <img src="./Documents/react.png" width="200"> | <img src="./Documents/nav.png" width="200"> | <img src="./Documents/expo.png" width="200"> | <img src="./Documents/styled.png" width="200"> |
 
 |                  GraphQl                   |                     Apollo                     |                  React Hooks                  |
 | :----------------------------------------: | :--------------------------------------------: | :-------------------------------------------: |
 | <img src="./Documents/gq.png" width="200"> | <img src="./Documents/apollo.png" width="200"> | <img src="./Documents/hooks.png" width="200"> |
 
-|                styled component                |
-| :--------------------------------------------: |
-| <img src="./Documents/styled.png" width="200"> |
 
 
 
