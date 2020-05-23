@@ -22,7 +22,7 @@ const AuthInput = ({
   autoCapitalize = "none",
   returnKeyType = "done",
   autoCorrect = true,
-  onEndEditing = () => null,
+  onSubmitEditing = () => null,
   onChange,
 }) => (
   <Container>
@@ -33,7 +33,7 @@ const AuthInput = ({
       autoCapitalize={autoCapitalize}
       returnKeyType={returnKeyType}
       autoCorrect={autoCorrect}
-      onEndEditing={onEndEditing}
+      onSubmitEditing={onSubmitEditing}
       onChangeText={onChange}
     />
   </Container>
@@ -53,7 +53,7 @@ AuthInput.propTypes = {
   autoCapitalize: PropTypes.oneOf(["none", "sentences", "words", "characters"]),
   returnKeyType: PropTypes.oneOf(["done", "go", "next", "search", "send"]),
   autoCorrect: PropTypes.bool.isRequired,
-  onEndEditing: PropTypes.func.isRequired,
+  onSubmitEditing: PropTypes.func,
   onChange: PropTypes.func.isRequired,
 };
 
