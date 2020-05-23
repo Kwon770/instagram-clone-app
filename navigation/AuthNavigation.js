@@ -17,8 +17,8 @@ export default () => {
         screenOptions={{ cardStyle: { backgroundColor: "#ffffff" } }}
       >
         <AuthNavigation.Screen name="Login" component={Login} />
-        <AuthNavigation.Screen name="AuthHome" component={AuthHome} />
         <AuthNavigation.Screen name="Confirm" component={Confirm} />
+        <AuthNavigation.Screen name="AuthHome" component={AuthHome} />
         <AuthNavigation.Screen name="Signup" component={Signup} />
       </AuthNavigation.Navigator>
     </NavigationContainer>

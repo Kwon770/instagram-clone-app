@@ -25,7 +25,7 @@ export default ({ navigation }) => {
   const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const handleLogin = async () => {
     const { value } = emailInput;
-    if (value == "") {
+    if (value === "") {
       return Alert.alert("Email can't be empty");
     } else if (!value.includes("@") || !value.includes(".")) {
       return Alert.alert("Please write an email");
@@ -40,11 +40,11 @@ export default ({ navigation }) => {
       } = await requestSecretMutation();
       if (requestSecret) {
         Alert.alert("Check your email");
-        navigation.navigate("Confirm");
+        navigation.navigate("Confirm", { email: value });
         return;
       } else {
         Alert.alert("Account not found");
-        navigation.navigate("Signup");
+        navigation.navigate("Signup", { email: value });
       }
     } catch (e) {
       console.log(e);
