@@ -277,3 +277,31 @@ _But if you want to change the color of all navigator, change it from `navigator
       </MainNavigation.Navigator>
     </NavigationContainer>
 ```
+
+## Pass props, navigating navigation
+
+_V 5.x version_
+
+# Pass props | Set props
+
+```js
+export default ({ navigation, route }) => {
+  // ~~ 
+
+  // Navigate "Confirm" navigation, Pass value as "email" props
+  navigation.navigate("Confirm", { email: value });
+
+  // ~~
+}
+```
+
+# Get props | Set props
+
+```js
+export default ({ navigation, route }) => {
+  // Get params what is name, "email"
+  const emailInput = useInput(route.params ? route.params.email : "");
+
+  // ~~
+}
+```
