@@ -8,7 +8,7 @@ const Container = styled.View`
 `;
 
 const TextInput = styled.TextInput`
-  width: ${constants.width / 2};
+  width: ${constants.width / 1.7};
   padding: 10px;
   background-color: ${(props) => props.theme.grayColor};
   border: 1px solid ${(props) => props.theme.darkGrayColor};
@@ -52,7 +52,7 @@ AuthInput.propTypes = {
   ]),
   autoCapitalize: PropTypes.oneOf(["none", "sentences", "words", "characters"]),
   returnKeyType: PropTypes.oneOf(["done", "go", "next", "search", "send"]),
-  autoCorrect: PropTypes.bool.isRequired,
+  autoCorrect: PropTypes.bool,
   onSubmitEditing: PropTypes.func,
   onChange: PropTypes.func.isRequired,
 };

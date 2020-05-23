@@ -15,7 +15,7 @@ const View = styled.View`
   flex: 1;
 `;
 
-export default ({ navigation, route }) => {
+export default ({ route }) => {
   const confirmInput = useInput("");
   const logIn = useLogIn();
   const [loading, setLoading] = useState(false);

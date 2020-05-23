@@ -14,8 +14,8 @@ const View = styled.View`
   flex: 1;
 `;
 
-export default ({ navigation }) => {
-  const emailInput = useInput("");
+export default ({ navigation, route }) => {
+  const emailInput = useInput(route.params ? route.params.email : "");
   const [loading, setLoading] = useState(false);
   const [requestSecretMutation] = useMutation(LOG_IN, {
     variables: {
