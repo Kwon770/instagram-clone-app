@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import * as Facebook from "expo-facebook";
+import * as Google from "expo-google-app-auth";
 import { useMutation } from "react-apollo-hooks";
 import { CREATE_ACCOUNT } from "./AuthQueries";
 import AuthButton from "../../components/AuthButton";
@@ -84,10 +85,7 @@ export default ({ navigation, route }) => {
           `https://graph.facebook.com/me?access_token=${token}&fields=id,last_name,first_name,email`
         );
         const { email, first_name, last_name } = await response.json();
-        emailInput.setValue(email);
-        fNameInput.setValue(first_name);
-        lNameInput.setValue(last_name);
-        userNameInput.setValue(email.split("@")[0]);
+        updateFormData(email, first_name, last_name);
         Alert.alert("Logged in!", `Hi ${(await response.json()).name}!`);
       } else {
         // type === 'cancel'
@@ -97,6 +95,40 @@ export default ({ navigation, route }) => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const googleLogin = async () => {
+    const GOOLGE_ID =
+      "140622084918-kh533k9sp8takb958dh6udk49ff5k51e.apps.googleusercontent.com";
+
+    try {
+      setLoading(true);
+      const result = await Google.logInAsync({
+        // androidClientId: YOUR_CLIENT_ID_HERE,
+        iosClientId: GOOLGE_ID,
+        scopes: ["profile", "email"],
+      });
+      if (result.type === "success") {
+        const user = await fetch("https://www.googleapis.com/userinfo/v2/me", {
+          headers: { Authorization: `Bearer ${result.accessToken}` },
+        });
+        const { email, family_name, given_name } = await user.json();
+        updateFormData(email, given_name, family_name);
+      } else {
+        return { cancelled: true };
+      }
+    } catch (e) {
+      return { error: true };
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const updateFormData = (email, firstName, lastName) => {
+    emailInput.setValue(email);
+    fNameInput.setValue(firstName);
+    lNameInput.setValue(lastName);
+    userNameInput.setValue(email.split("@")[0]);
   };
 
   return (
@@ -132,6 +164,12 @@ export default ({ navigation, route }) => {
             loading={false}
             onPress={fbLogin}
             text="Connect Facebook"
+          />
+          <AuthButton
+            bgColor={"#EE1922"}
+            loading={false}
+            onPress={googleLogin}
+            text="Connect Google"
           />
         </FBContainer>
       </View>
