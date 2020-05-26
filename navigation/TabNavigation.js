@@ -21,20 +21,33 @@ const stackFactory = ({
     <StackNavigation.Screen
       name={name}
       component={initialRoute}
-      options={customOptions}
+      options={{
+        ...customOptions,
+        headerStyle: {
+          backgroundColor: "#EFEEEF",
+        },
+      }}
     />
   </StackNavigation.Navigator>
 );
 
 export default () => {
   return (
-    <TabNavigation.Navigator tabBarOptions={{ showLabel: false }}>
+    <TabNavigation.Navigator
+      tabBarOptions={{
+        showLabel: false,
+        tabStyle: { backgroundColor: "#EFEEEF" },
+      }}
+    >
       <TabNavigation.Screen
         name="Home"
         component={stackFactory}
         options={{
-          tabBarIcon: () => (
-            <NavIcon name={Platform.OS === "ios" ? "ios-home" : "md-home"} />
+          tabBarIcon: ({ focused }) => (
+            <NavIcon
+              focused={focused}
+              name={Platform.OS === "ios" ? "ios-home" : "md-home"}
+            />
           ),
         }}
         initialParams={{
@@ -51,8 +64,9 @@ export default () => {
         name="Search"
         component={stackFactory}
         options={{
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <NavIcon
+              focused={focused}
               name={Platform.OS === "ios" ? "ios-search" : "md-search"}
             />
           ),
@@ -63,8 +77,12 @@ export default () => {
         name="Add"
         component={View}
         options={{
-          tabBarIcon: () => (
-            <NavIcon name={Platform.OS === "ios" ? "ios-add" : "md-add"} />
+          tabBarIcon: ({ focused }) => (
+            <NavIcon
+              size={28}
+              focused={focused}
+              name={Platform.OS === "ios" ? "ios-add" : "md-add"}
+            />
           ),
         }}
         listeners={({ navigation }) => ({
@@ -78,8 +96,19 @@ export default () => {
         name="Notifications"
         component={stackFactory}
         options={{
-          tabBarIcon: () => (
-            <NavIcon name={Platform.OS === "ios" ? "ios-heart" : "md-heart"} />
+          tabBarIcon: ({ focused }) => (
+            <NavIcon
+              focused={focused}
+              name={
+                Platform.OS === "ios"
+                  ? focused
+                    ? "ios-heart"
+                    : "ios-heart-empty"
+                  : focused
+                  ? "md-heart"
+                  : "md-heart-empty"
+              }
+            />
           ),
         }}
         initialParams={{ initialRoute: Notifications, name: "Notifications" }}
@@ -88,8 +117,9 @@ export default () => {
         name="Profile"
         component={stackFactory}
         options={{
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <NavIcon
+              focused={focused}
               name={Platform.OS === "ios" ? "ios-person" : "md-person"}
             />
           ),
