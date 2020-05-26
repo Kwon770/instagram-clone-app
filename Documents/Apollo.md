@@ -61,3 +61,48 @@ export default function App() {
   );
 }
 ```
+
+
+## Send request with authorization
+
+### Using header function
+
+header function is execute only when the app is mount
+
+```js
+  // ~~ 
+  // Same code with setup code
+
+  const token = await AsyncStorage.getItem("jwt");
+  const client = new ApolloClient({
+          cache,
+          header: { Authorization: `Bearer ${token}` },
+          ...apolloClientOptions,
+        });
+
+  // ~~
+```
+
+### Using request function
+
+request is execute whenever the app send query.
+
+By setting context of operation, header function with authorization is added to every query. (`operation.setContext({})`)
+
+```js
+  // ~~ 
+  // Same code with setup code
+
+  const client = new ApolloClient({
+          cache,
+          request: async (operation) => {
+          const token = await AsyncStorage.getItem("jwt");
+          return operation.setContext({
+            header: { Authorization: `Bearer ${token}` },
+            });
+          },
+          ...apolloClientOptions,
+        });
+
+  // ~~
+```
