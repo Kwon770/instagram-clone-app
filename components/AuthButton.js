@@ -32,7 +32,7 @@ const AuthButton = ({ text, onPress, loading = false, bgColor = null }) => (
 AuthButton.propTypes = {
   text: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
 };
 
 export default AuthButton;

@@ -28,13 +28,13 @@ import "react-native-gesture-handler";
 
 ## How to use stack navigation
 
-# Install
+### Install
 
 ```bash
   $ yarn add @react-navigation/stack
 ```
 
-# Usage
+### Usage
 
 ```js
 import React from "react";
@@ -61,7 +61,7 @@ export default () => {
 };
 ```
 
-# Embed UI to header
+### Embed UI to header
 
 (Docs)[https://reactnavigation.org/docs/header-buttons/#adding-a-button-to-the-header]
 
@@ -83,13 +83,13 @@ export default () => {
 
 ## How to use tab navigation
 
-# Install
+### Install
 
 ```bash
   $ yarn add @react-navigation/bottom-tabs
 ```
 
-# Usage
+### Usage
 
 ```js
 import React from "react";
@@ -130,13 +130,13 @@ export default () => {
 
 ## How to use material top tab navigation
 
-# Install
+### Install
 
 ```bash
   $ yarn add @react-navigation/material-top-tabs react-native-tab-view
 ```
 
-# Several application with tab navigation
+### Several application with tab navigation
 
 This code is the usage of material top tab navigation, having two skills to decorate
 
@@ -156,7 +156,7 @@ There is also Material-Bottom-Tabs. But it is different in appearance.
 
 So we just can make material-top-tabs look like material-bottom-tabs by changing position.
 
-# Usage
+### Usage
 
 ```js
 import React from "react";
@@ -224,7 +224,7 @@ export default () => {
 
 ## Get Navigation from other component
 
-# V.5
+_V 5.x version_
 
 ```js
 import { useNavigation } from "@react-navigation/native";
@@ -240,7 +240,7 @@ export default () => {
 };
 ```
 
-# V.4
+_V 4.x version_
 
 ```js
 import { withNavigation } from "react-navigation";
@@ -282,7 +282,7 @@ _But if you want to change the color of all navigator, change it from `navigator
 
 _V 5.x version_
 
-# Pass props | Set props
+### Pass props | Set props
 
 ```js
 export default ({ navigation, route }) => {
@@ -295,7 +295,7 @@ export default ({ navigation, route }) => {
 }
 ```
 
-# Get props | Set props
+### Get props | Set props
 
 ```js
 export default ({ navigation, route }) => {
@@ -304,4 +304,48 @@ export default ({ navigation, route }) => {
 
   // ~~
 }
+```
+
+## Align headerTitle 
+
+_V 5.x version_
+
+### Text component header
+
+```js
+<StackNavigation.Screen
+      name={"Home"}
+      component={Home}
+      options={{
+        headerTitle: <Text>header<Text>,
+        headerTitleAlign: "center",
+      }}
+    />
+```
+
+### Image component header
+
+```js
+<StackNavigation.Screen
+      name={"Home"}
+      component={Home}
+      options={{
+        headerTitle: (
+          <View
+                style={{
+                  flex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Image
+                  style={{ height: 35 }}
+                  resizeMode="contain"
+                  source={require("../assets/logo.jpg")}
+                />
+              </View>
+        ),
+        headerTitleAlign: "center",
+      }}
+    />
 ```

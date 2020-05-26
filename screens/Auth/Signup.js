@@ -23,6 +23,10 @@ const FBContainer = styled.View`
   border-style: solid;
 `;
 
+const GoogleContainer = styled.View`
+  margin-top: 20px;
+`;
+
 export default ({ navigation, route }) => {
   const fNameInput = useInput("");
   const lNameInput = useInput("");
@@ -165,13 +169,15 @@ export default ({ navigation, route }) => {
             onPress={fbLogin}
             text="Connect Facebook"
           />
+        </FBContainer>
+        <GoogleContainer>
           <AuthButton
             bgColor={"#EE1922"}
             loading={false}
             onPress={googleLogin}
             text="Connect Google"
           />
-        </FBContainer>
+        </GoogleContainer>
       </View>
     </TouchableWithoutFeedback>
   );
