@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import SelectPhoto from "../screens/Photo/SelectPhoto";
 import TakePhoto from "../screens/Photo/TakePhoto";
 import UploadPhoto from "../screens/Photo/UploadPhoto";
+import { stackStyles } from "./config";
 
 const PhotoStack = createStackNavigator();
 const TabNavigator = createMaterialTopTabNavigator();
@@ -17,7 +18,7 @@ const PhotoTabNavigator = () => (
 
 export default () => {
   return (
-    <PhotoStack.Navigator>
+    <PhotoStack.Navigator screenOptions={{ headerStyle: { ...stackStyles } }}>
       <PhotoStack.Screen name="PhotoTabs" component={PhotoTabNavigator} />
       <PhotoStack.Screen name="UploadPhoto" component={UploadPhoto} />
     </PhotoStack.Navigator>

@@ -11,7 +11,7 @@ const NavIcon = ({
 }) => (
   <Ionicons
     name={name}
-    color={focused ? color : styles.lightGrayColor}
+    color={focused ? color : styles.darkGrayColor}
     size={size}
   />
 );

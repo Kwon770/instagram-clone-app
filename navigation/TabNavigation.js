@@ -8,6 +8,7 @@ import Profile from "../screens/Tabs/Profile";
 import Search from "../screens/Tabs/Search";
 import MessagesLink from "../components/MessagesLink";
 import NavIcon from "../components/NavIcon";
+import { stackStyles } from "./config";
 
 const StackNavigation = createStackNavigator();
 const TabNavigation = createBottomTabNavigator();
@@ -24,7 +25,7 @@ const stackFactory = ({
       options={{
         ...customOptions,
         headerStyle: {
-          backgroundColor: "#EFEEEF",
+          ...stackStyles,
         },
       }}
     />
@@ -36,7 +37,7 @@ export default () => {
     <TabNavigation.Navigator
       tabBarOptions={{
         showLabel: false,
-        tabStyle: { backgroundColor: "#EFEEEF" },
+        style: { backgroundColor: "#FAFAFA" },
       }}
     >
       <TabNavigation.Screen
