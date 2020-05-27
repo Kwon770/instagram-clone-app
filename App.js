@@ -38,7 +38,7 @@ export default function App() {
         request: async (operation) => {
           const token = await AsyncStorage.getItem("jwt");
           return operation.setContext({
-            header: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
           });
         },
         ...apolloClientOptions,
