@@ -349,3 +349,32 @@ _V 5.x version_
       }}
     />
 ```
+
+## Set the options of Navigation from Screen
+
+[Options of Navigation](https://reactnavigation.org/docs/bottom-tab-navigator#options)
+[Set Options from Screen](https://reactnavigation.org/docs/navigation-prop#setoptions)
+
+```js
+// Search.js (Search Screen of stack Navigation)
+// To add search TextInput on header
+
+export default ({ navigation }) => {
+  navigation.setOptions({
+    headerTitle: () => (
+      <SearchBar
+        value={search.value}
+        onChange={search.onChange}
+        onSubmit={() => null}
+      />
+    ),
+  });
+  const search = useInput("");
+  return (
+    <View>
+      <Text>Search</Text>
+    </View>
+  );
+};
+
+```
