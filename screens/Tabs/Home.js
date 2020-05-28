@@ -44,7 +44,9 @@ const View = styled.View`
 
 export default () => {
   const [refreshing, setRefreshing] = useState(false);
-  const { loading, data, refetch } = useQuery(FEED_QUERY);
+  const { loading, data, refetch } = useQuery(FEED_QUERY, {
+    fetchPolicy: "network-only",
+  });
   const refresh = async () => {
     try {
       setRefreshing(true);
