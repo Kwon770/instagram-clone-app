@@ -5,12 +5,15 @@ import { gql } from "apollo-boost";
 import SearchBar from "../../components/SearchBar";
 import useInput from "../../hooks/useInput";
 import { useQuery } from "react-apollo-hooks";
+import Loader from "../../components/Loader";
+import SquarePhoto from "../../components/SquarePhoto";
 
 export const SEARCH = gql`
   query search($term: String!) {
     searchPost(term: $term) {
       id
       files {
+        id
         url
       }
       likeCount
@@ -42,6 +45,7 @@ export default ({ navigation }) => {
       term: searchVal,
     },
     skip: !isFetch,
+    fetchPolicy: "network-only",
   });
   const [refreshing, setRefreshing] = useState(false);
 
@@ -69,6 +73,14 @@ export default ({ navigation }) => {
       refreshControl={
         <RefreshControl onRefresh={onRefresh} refreshing={refreshing} />
       }
-    ></ScrollView>
+    >
+      {loading ? (
+        <Loader />
+      ) : (
+        data &&
+        data.searchPost &&
+        data.searchPost.map((post) => <SquarePhoto key={post.id} {...post} />)
+      )}
+    </ScrollView>
   );
 };

@@ -38,7 +38,7 @@ const Location = styled.Text`
 `;
 
 const InfoContainer = styled.View`
-  padding: 10px;
+  padding: 7px 10px;
 `;
 
 const IconsContainer = styled.View`
@@ -111,8 +111,8 @@ const Post = ({
       </Header>
       <Swiper
         paginationStyle={{
-          backgroundColor: "#FAFAFA",
-          marginBottom: -56,
+          backgroundColor: "#ffffff",
+          marginBottom: -54,
         }}
         style={{ height: constants.height / 2.5 }}
       >

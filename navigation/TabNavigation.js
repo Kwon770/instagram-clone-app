@@ -6,6 +6,7 @@ import Home from "../screens/Tabs/Home";
 import Notifications from "../screens/Tabs/Notifications";
 import Profile from "../screens/Tabs/Profile";
 import Search from "../screens/Tabs/Search";
+import Detail from "../screens/Detail";
 import MessagesLink from "../components/MessagesLink";
 import NavIcon from "../components/NavIcon";
 import { stackStyles } from "./config";
@@ -18,7 +19,9 @@ const stackFactory = ({
     params: { name, initialRoute, customOptions },
   },
 }) => (
-  <StackNavigation.Navigator>
+  <StackNavigation.Navigator
+    screenOptions={{ cardStyle: { backgroundColor: "#ffffff" } }}
+  >
     <StackNavigation.Screen
       name={name}
       component={initialRoute}
@@ -29,6 +32,7 @@ const stackFactory = ({
         },
       }}
     />
+    <StackNavigation.Screen name="Detail" component={Detail} />
   </StackNavigation.Navigator>
 );
 

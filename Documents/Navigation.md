@@ -280,9 +280,9 @@ _But if you want to change the color of all navigator, change it from `navigator
 
 ## Pass props, navigating navigation
 
-_V 5.x version_
-
 ### Pass props | Set props
+
+_V 5.x version_
 
 ```js
 export default ({ navigation, route }) => {
@@ -295,7 +295,13 @@ export default ({ navigation, route }) => {
 }
 ```
 
+_V 4.x version_
+
+`navigation.setParams()`
+
 ### Get props | Set props
+
+_V 5.x version_
 
 ```js
 export default ({ navigation, route }) => {
@@ -305,6 +311,10 @@ export default ({ navigation, route }) => {
   // ~~
 }
 ```
+
+_V 4.x version_
+
+`navigation.getParams()`
 
 ## Align headerTitle 
 
