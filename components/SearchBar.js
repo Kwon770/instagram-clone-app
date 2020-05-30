@@ -16,7 +16,7 @@ const SearchBar = ({ onChange, value, onSubmit }) => (
     }}
     returnKeyType="search"
     value={value}
-    onChange={onChange}
+    onChangeText={onChange}
     onEndEditing={onSubmit}
     placeholder={"Search"}
     placeholderTextColor={styles.darkGrayColor}
