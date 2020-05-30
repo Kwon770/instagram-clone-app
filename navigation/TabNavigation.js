@@ -48,9 +48,7 @@ const stackFactory = ({
     <StackNavigation.Screen
       name="UserDetail"
       component={UserDetail}
-      options={{
-        headerTitle: "User",
-      }}
+      options={({ route }) => ({ headerTitle: route.params.userName })}
     />
   </StackNavigation.Navigator>
 );
