@@ -55,7 +55,7 @@ export default () => {
         showLabel: false,
         style: { backgroundColor: "#FAFAFA" },
       }}
-      initialRouteName="Search"
+      initialRouteName="Profile"
     >
       <TabNavigation.Screen
         name="Home"

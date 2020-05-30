@@ -1,4 +1,5 @@
 import React from "react";
+import { ScrollView } from "react-native";
 import styled from "styled-components";
 import { useQuery } from "react-apollo-hooks";
 import { gql } from "apollo-boost";
@@ -17,19 +18,17 @@ const POST_DETAIL = gql`
 
 const View = styled.View``;
 
-const Text = styled.Text``;
-
 export default ({ route }) => {
   const { loading, data } = useQuery(POST_DETAIL, {
     variables: { id: route.params.id },
   });
   return (
-    <View>
+    <ScrollView>
       {loading ? (
         <Loader />
       ) : (
         data && data.seeFullPost && <Post {...data.seeFullPost} />
       )}
-    </View>
+    </ScrollView>
   );
 };

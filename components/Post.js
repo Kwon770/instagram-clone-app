@@ -70,7 +70,6 @@ const Post = ({
   comments,
   isLiked: isLikedProp,
 }) => {
-  console.log(isLikedProp);
   const [isLiked, setIsLiked] = useState(isLikedProp);
   const [likeCount, setLikeCount] = useState(likeCountProp);
   const [toggleLikeMutation] = useMutation(TOGGLE_LIKE, {
@@ -88,7 +87,6 @@ const Post = ({
     try {
       const mutation = toggleLikeMutation();
       await mutation;
-      console.log(mutation);
     } catch (e) {
       console.log(e);
     }
