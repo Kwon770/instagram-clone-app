@@ -10,6 +10,7 @@ import Detail from "../screens/Detail";
 import MessagesLink from "../components/MessagesLink";
 import NavIcon from "../components/NavIcon";
 import { stackStyles } from "./config";
+import styles from "../styles";
 
 const StackNavigation = createStackNavigator();
 const TabNavigation = createBottomTabNavigator();
@@ -32,7 +33,18 @@ const stackFactory = ({
         },
       }}
     />
-    <StackNavigation.Screen name="Detail" component={Detail} />
+    <StackNavigation.Screen
+      name="Detail"
+      component={Detail}
+      options={{
+        headerBackTitle: null,
+        headerTintColor: styles.blackColor,
+        headerTitle: "Photo",
+        headerStyle: {
+          ...stackStyles,
+        },
+      }}
+    />
   </StackNavigation.Navigator>
 );
 
@@ -77,7 +89,10 @@ export default () => {
             />
           ),
         }}
-        initialParams={{ initialRoute: Search, name: "Search" }}
+        initialParams={{
+          initialRoute: Search,
+          name: "Search",
+        }}
       />
       <TabNavigation.Screen
         name="Add"
