@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Image, Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import styled from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 import { gql } from "apollo-boost";
@@ -77,6 +78,8 @@ const Post = ({
       postId: id,
     },
   });
+  const navigation = useNavigation();
+
   const handleLike = async () => {
     if (isLiked === true) {
       setLikeCount((l) => l - 1);
@@ -91,16 +94,25 @@ const Post = ({
       console.log(e);
     }
   };
+
   return (
     <Container>
       <Header>
-        <Touchable>
+        <Touchable
+          onPress={() =>
+            navigation.navigate("UserDetail", { userName: user.userName })
+          }
+        >
           <Image
             style={{ height: 40, width: 40, borderRadius: 20 }}
             source={{ uri: user.avatar }}
           />
         </Touchable>
-        <Touchable>
+        <Touchable
+          onPress={() =>
+            navigation.navigate("UserDetail", { userName: user.userName })
+          }
+        >
           <HeaderUserContainer>
             <Bold>{user.userName}</Bold>
             <Location>{location}</Location>

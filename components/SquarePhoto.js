@@ -9,7 +9,7 @@ const SquarePhoto = ({ files = [], id }) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("Detail", { id })}>
+    <TouchableOpacity onPress={() => navigation.navigate("PostDetail", { id })}>
       <Image
         source={{ uri: files[0].url }}
         style={{ width: constants.width / 3, height: constants.height / 6 }}

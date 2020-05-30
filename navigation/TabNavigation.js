@@ -6,11 +6,12 @@ import Home from "../screens/Tabs/Home";
 import Notifications from "../screens/Tabs/Notifications";
 import Profile from "../screens/Tabs/Profile";
 import Search from "../screens/Tabs/Search";
-import Detail from "../screens/Detail";
+import PostDetail from "../screens/PostDetail";
 import MessagesLink from "../components/MessagesLink";
 import NavIcon from "../components/NavIcon";
 import { stackStyles } from "./config";
 import styles from "../styles";
+import UserDetail from "../screens/UserDetail";
 
 const StackNavigation = createStackNavigator();
 const TabNavigation = createBottomTabNavigator();
@@ -21,28 +22,34 @@ const stackFactory = ({
   },
 }) => (
   <StackNavigation.Navigator
-    screenOptions={{ cardStyle: { backgroundColor: "#ffffff" } }}
+    screenOptions={{
+      cardStyle: { backgroundColor: "#ffffff" },
+      headerTintColor: styles.blackColor,
+      headerStyle: {
+        ...stackStyles,
+      },
+      headerBackTitle: " ",
+    }}
   >
     <StackNavigation.Screen
       name={name}
       component={initialRoute}
       options={{
         ...customOptions,
-        headerStyle: {
-          ...stackStyles,
-        },
       }}
     />
     <StackNavigation.Screen
-      name="Detail"
-      component={Detail}
+      name="PostDetail"
+      component={PostDetail}
       options={{
-        headerBackTitle: null,
-        headerTintColor: styles.blackColor,
-        headerTitle: "Photo",
-        headerStyle: {
-          ...stackStyles,
-        },
+        headerTitle: "Post",
+      }}
+    />
+    <StackNavigation.Screen
+      name="UserDetail"
+      component={UserDetail}
+      options={{
+        headerTitle: "User",
       }}
     />
   </StackNavigation.Navigator>
