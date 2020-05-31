@@ -8,7 +8,7 @@ const Container = styled.View`
 `;
 
 const TextInput = styled.TextInput`
-  width: ${constants.width / 1.7};
+  width: ${constants.width / 1.7}px;
   padding: 10px;
   background-color: ${(props) => props.theme.grayColor};
   border: 1px solid ${(props) => props.theme.darkGrayColor};

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, View, TouchableOpacity, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import styles from "../styles";
 import constants from "../constants";
+import SquarePhoto from "./SquarePhoto";
+import Post from "./Post";
 
 const ProfileHeader = styled.View`
   padding: 20px;
@@ -42,70 +44,87 @@ const ProfileMeta = styled.View`
 const Bio = styled.Text``;
 
 const ButtonContainer = styled.View`
+  padding: 5px 0px;
+  border: 0.5px solid ${styles.lightGrayColor};
   flex-direction: row;
   margin-top: 30px;
 `;
 
 const Button = styled.View`
-  width: ${constants.width / 2};
+  width: ${constants.width / 2}px;
   align-items: center;
 `;
 
 const UserProfile = ({
   avatar,
+  posts,
   postsCount,
   followersCount,
   followingCount,
   fullName,
   bio,
-}) => (
-  <View>
-    <ProfileHeader>
-      <Image
-        style={{ height: 80, width: 80, borderRadius: 40 }}
-        source={{ uri: avatar }}
-      />
-      <HeaderColumn>
-        <ProfileStats>
-          <Stat>
-            <Bold>{postsCount}</Bold>
-            <StatName>Posts</StatName>
-          </Stat>
-          <Stat>
-            <Bold>{followersCount}</Bold>
-            <StatName>followers</StatName>
-          </Stat>
-          <Stat>
-            <Bold>{followingCount}</Bold>
-            <StatName>following</StatName>
-          </Stat>
-        </ProfileStats>
-      </HeaderColumn>
-    </ProfileHeader>
-    <ProfileMeta>
-      <Bold>{fullName}</Bold>
-      <Bio>{bio}</Bio>
-    </ProfileMeta>
-    <ButtonContainer>
-      <TouchableOpacity>
-        <Button>
-          <Ionicons
-            size={32}
-            name={Platform.OS === "ios" ? "ios-grid" : "md-grid"}
-          />
-        </Button>
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Button>
-          <Ionicons
-            size={32}
-            name={Platform.OS === "ios" ? "ios-list" : "md-list"}
-          />
-        </Button>
-      </TouchableOpacity>
-    </ButtonContainer>
-  </View>
-);
+}) => {
+  const [isGrid, setIsGrid] = useState(true);
+
+  return (
+    <View>
+      <ProfileHeader>
+        <Image
+          style={{ height: 80, width: 80, borderRadius: 40 }}
+          source={{ uri: avatar }}
+        />
+        <HeaderColumn>
+          <ProfileStats>
+            <Stat>
+              <Bold>{postsCount}</Bold>
+              <StatName>Posts</StatName>
+            </Stat>
+            <Stat>
+              <Bold>{followersCount}</Bold>
+              <StatName>followers</StatName>
+            </Stat>
+            <Stat>
+              <Bold>{followingCount}</Bold>
+              <StatName>following</StatName>
+            </Stat>
+          </ProfileStats>
+        </HeaderColumn>
+      </ProfileHeader>
+      <ProfileMeta>
+        <Bold>{fullName}</Bold>
+        <Bio>{bio}</Bio>
+      </ProfileMeta>
+      <ButtonContainer>
+        <TouchableOpacity onPress={() => setIsGrid(true)}>
+          <Button>
+            <Ionicons
+              color={isGrid ? styles.blackColor : styles.lightGrayColor}
+              size={32}
+              name={Platform.OS === "ios" ? "ios-grid" : "md-grid"}
+            />
+          </Button>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setIsGrid(false)}>
+          <Button>
+            <Ionicons
+              color={!isGrid ? styles.blackColor : styles.lightGrayColor}
+              size={32}
+              name={Platform.OS === "ios" ? "ios-list" : "md-list"}
+            />
+          </Button>
+        </TouchableOpacity>
+      </ButtonContainer>
+      {posts &&
+        posts.map((post) =>
+          isGrid ? (
+            <SquarePhoto key={post.id} {...post} />
+          ) : (
+            <Post key={post.id} {...post} />
+          )
+        )}
+    </View>
+  );
+};
 
 UserProfile.propTypes = {
   id: PropTypes.string.isRequired,

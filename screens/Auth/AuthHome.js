@@ -10,7 +10,7 @@ const View = styled.View`
 `;
 
 const Image = styled.Image`
-  width: ${constants.width / 2.5};
+  width: ${constants.width / 2.5}px;
   margin-bottom: -35px;
 `;
 
