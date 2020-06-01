@@ -22,9 +22,6 @@ Screens:
 | :----------------------------------------: | :--------------------------------------------: | :-------------------------------------------: |
 | <img src="./Documents/gq.png" width="200"> | <img src="./Documents/apollo.png" width="200"> | <img src="./Documents/hooks.png" width="200"> |
 
-
-
-
 ## Document
 
 | Title        | Description                          | Description                                |
@@ -38,7 +35,7 @@ Screens:
 ## Setup
 
 ```bash
- $ yarn add styled-components apollo-boost graphql react-apollo-hooks @expo/vector-icons expo-font expo-asset apollo-cache-persist apollo-cache-inmemory react-navigation @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+ $ yarn add styled-components apollo-boost graphql react-apollo-hooks @expo/vector-icons expo-font expo-asset apollo-cache-persist apollo-cache-inmemory react-navigation @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view axios
 ```
 
 [Expo vector-icons directory](https://icons.expo.fyi)
