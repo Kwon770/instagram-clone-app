@@ -39,7 +39,7 @@ export default () => {
         name="PhotoTabs"
         component={PhotoTabNavigator}
         options={{
-          headerShown: false,
+          title: "Choose Photo",
         }}
       />
       <PhotoStack.Screen
