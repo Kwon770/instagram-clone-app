@@ -51,6 +51,8 @@ export default () => {
           headerStyle: {
             ...stackStyles,
           },
+          headerBackTitle: " ",
+          headerTitle: "Upload",
         }}
       />
     </PhotoStack.Navigator>
