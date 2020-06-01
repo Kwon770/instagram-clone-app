@@ -55,35 +55,31 @@ export default () => {
     <View>
       {loading ? (
         <Loader />
-      ) : (
-        <View>
-          {hasPermissions ? (
-            <>
-              <Image
-                style={{ width: constants.width, height: constants.height / 2 }}
-                source={{ uri: selected.uri }}
-              />
-              <ScrollView contentContainerStyle={{ flexDirection: "row" }}>
-                {allPhotos.map((photo) => (
-                  <TouchableOpacity
-                    key={photo.id}
-                    onPress={() => changeSelected(photo)}
-                  >
-                    <Image
-                      source={{ uri: photo.uri }}
-                      style={{
-                        width: constants.width / 3,
-                        height: constants.height / 6,
-                        opacity: photo.id === selected.id ? 0.5 : 1,
-                      }}
-                    />
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-            </>
-          ) : null}
-        </View>
-      )}
+      ) : hasPermissions ? (
+        <>
+          <Image
+            style={{ width: constants.width, height: constants.height / 2 }}
+            source={{ uri: selected.uri }}
+          />
+          <ScrollView contentContainerStyle={{ flexDirection: "row" }}>
+            {allPhotos.map((photo) => (
+              <TouchableOpacity
+                key={photo.id}
+                onPress={() => changeSelected(photo)}
+              >
+                <Image
+                  source={{ uri: photo.uri }}
+                  style={{
+                    width: constants.width / 3,
+                    height: constants.height / 6,
+                    opacity: photo.id === selected.id ? 0.5 : 1,
+                  }}
+                />
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </>
+      ) : null}
     </View>
   );
 };
