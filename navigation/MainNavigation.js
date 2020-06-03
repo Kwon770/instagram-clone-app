@@ -19,11 +19,11 @@ export default () => {
           headerStyle: { ...stackStyles },
         }}
       >
+        <MainNavigation.Screen name="TabNavigation" component={TabNavigation} />
         <MainNavigation.Screen
           name="PhotoNavigation"
           component={PhotoNavigation}
         />
-        <MainNavigation.Screen name="TabNavigation" component={TabNavigation} />
         <MainNavigation.Screen
           name="MessageNavigation"
           component={MessageNavigation}
