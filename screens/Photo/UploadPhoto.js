@@ -21,6 +21,7 @@ const UPLOAD = gql`
 const View = styled.View`
   flex: 1;
 `;
+``;
 
 const Container = styled.View`
   padding: 20px;

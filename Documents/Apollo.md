@@ -106,3 +106,28 @@ By setting context of operation, header function with authorization is added to 
 
   // ~~
 ```
+
+## Several tips of useMutation
+
+### refetchQueries
+
+`refetchQueries` is Query what will refetch when `useMutation` execute
+
+
+```js
+const [uploadMutation] = useMutation(UPLOAD, {
+    refetchQueries: () => [{ query: FEED_QUERY }],
+  });
+```
+
+### Pass parameter when useMutation execute
+
+```js
+const mutation = await uploadMutation({
+        variables: {
+          caption: captionInput.value,
+          location: locationInput.value,
+          files: [location],
+        },
+      });
+```
