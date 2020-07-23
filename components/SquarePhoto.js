@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, Image } from "react-native";
-import styled from "styled-components";
 import PropTypes from "prop-types";
 import constants from "../constants";
 

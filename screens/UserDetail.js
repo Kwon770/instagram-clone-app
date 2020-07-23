@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import styled from "styled-components";
 import { useQuery } from "react-apollo-hooks";
 import { gql } from "apollo-boost";
 import { USER_FRAGMENT } from "../fragments";
@@ -15,8 +14,6 @@ const USER_DETAIL = gql`
   }
   ${USER_FRAGMENT}
 `;
-
-const View = styled.View``;
 
 export default ({ route }) => {
   const { loading, data } = useQuery(USER_DETAIL, {
