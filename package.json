@@ -16,7 +16,7 @@
     "apollo-boost": "^0.4.9",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-cache-persist": "^0.1.1",
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "expo": "~37.0.3",
     "expo-asset": "^8.1.5",
     "expo-camera": "~8.2.0",
